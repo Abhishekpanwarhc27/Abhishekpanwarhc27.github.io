@@ -1,23 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Short Stories</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Short Stories Collection</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #4fc3dc;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .intro {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        
+        .story-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .story-image {
+            height: 180px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .story-content {
+            padding: 20px;
+        }
+        
+        .story-title {
+            font-size: 1.4rem;
+            margin: 0 0 10px;
+            color: var(--secondary-color);
+        }
+        
+        .story-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .read-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .read-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 2rem 0;
+        }
+        
+        .category-btn {
+            padding: 8px 16px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Short Stories</h1>
+        <div class="container">
+            <h1>Storyteller's Haven</h1>
+            <div class="subtitle">A collection of short stories by Abhishek Panwar</div>
+        </div>
     </header>
-    <main>
-        <section id="stories-list">
-            <h2>Story Collection</h2>
-            <Pari Tibba>
-        </section>
-    </main>
+    
+    <div class="container">
+        <div class="intro">
+            <p>Welcome to my digital library of short stories. Here you'll find tales of mystery, fantasy, and the human experience. Each story is a journey - I invite you to explore them at your leisure.</p>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active">All Stories</button>
+            <button class="category-btn">Fantasy</button>
+            <button class="category-btn">Horror</button>
+            <button class="category-btn">Adventure</button>
+            <button class="category-btn">Mystery</button>
+        </div>
+        
+        <div class="stories-grid">
+            <!-- Story Card 1 -->
+            <div class="story-card">
+                <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                <div class="story-content">
+                    <h3 class="story-title">Pari Tibba</h3>
+                    <p class="story-excerpt">A mysterious hilltop where fairies are said to take handsome boys away forever. Hemant decides to venture where no one dares to go...</p>
+                    <a href="stories/pari-tibba.html" class="read-btn">Read Story</a>
+                </div>
+            </div>
+            
+            <!-- Story Card 2 (Example - Add your other stories like this) -->
+            <div class="story-card">
+                <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                <div class="story-content">
+                    <h3 class="story-title">The Midnight Visitor</h3>
+                    <p class="story-excerpt">When the clock strikes twelve, she appears at the foot of the bed. But is she a ghost, a memory, or something more sinister?</p>
+                    <a href="stories/midnight-visitor.html" class="read-btn">Read Story</a>
+                </div>
+            </div>
+            
+            <!-- Story Card 3 (Example) -->
+            <div class="story-card">
+                <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                <div class="story-content">
+                    <h3 class="story-title">The Last Bookshop</h3>
+                    <p class="story-excerpt">In a world where no one reads anymore, one man keeps a bookshop open. But these books have secrets between their pages...</p>
+                    <a href="stories/last-bookshop.html" class="read-btn">Read Story</a>
+                </div>
+            </div>
+            
+            <!-- Add more story cards as needed -->
+        </div>
+    </div>
+    
     <footer>
-        <p>© 2025 Abhishek Panwar</p>
+        <div class="container">
+            <p>&copy; 2023 Abhishek Panwar. All stories are original works.</p>
+            <p>Want to get in touch? <a href="mailto:your-email@example.com" style="color: var(--accent-color);">Email me</a></p>
+        </div>
     </footer>
-    <script src="js/app.js"></script>
-    <a href="stories/new-story.html">Read My New Story</a>
+    
+    <script>
+        // Simple category filtering functionality
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.category-btn.active').classList.remove('active');
+                btn.classList.add('active');
+                // In a real implementation, you would filter stories here
+            });
+        });
+    </script>
 </body>
 </html>
